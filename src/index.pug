@@ -1,0 +1,166 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title IEDC SUMMIT 2019
+    link(rel="stylesheet", href="./css/main.scss")
+  body
+    section#slider-section
+      .container#logo-container
+        .row
+          .col
+            img#logo(src="./img/logo.png")
+        div#type-area
+      img.slide(src="./img/bg1.jpg")
+      img.slide(src="./img/bg2.jpg")
+      img.slide(src="./img/bg4.jpg")
+      img.slide(src="./img/bg3.jpg")
+
+    section#about-section.section-content
+      .container
+        .row
+          .col-sm-8  
+            h1.pb-3 About
+            p.text-justify 
+              | Since 2016, Kerala Startup Mission, Nodal agency of Government of Kerala organizes IEDC Summit, Asia’s largest student Entrepreneurship Summit where the students get an opportunity to experience the technological diversities and advancements through a series of technology track events, brainstorming sessions, interactive community meet ups and product exhibitions.
+            p.text-justify
+              | IEDC Summit is also an avenue for participants of various units across the State to come together, to share their success stories, to learn from each other’s failures, to showcase their innovative products and also to develop strong networks that go a long way in developing sustainable enterprises.
+          .col-sm-4
+            .counter
+              .counter-item
+                span.count-text Attendees
+                span.count-number(data-count="2000") 0
+              .counter-item
+                span.count-text Startups
+                span.count-number(data-count="1000") 0
+              .counter-item
+                span.count-text Events
+                span.count-number(data-count="100") 0
+              .counter-item
+                span.count-text Speakers
+                span.count-number(data-count="25") 0
+        .row
+          .col.text-center
+            .video-block
+              iframe(type='text/html' width='830' height='400' src='http://www.youtube.com/embed/iUsuwIyFzIk?autoplay=0&origin=http://example.com' frameborder='0')
+
+    section#join-us.section-content
+      .container
+        .row
+          .col-sm-8.text-center
+            h3 Join us for the memorable days of immersing yourself into the great world of innovation &amp; entrepreneurship
+            h1 on 24th August 2019 at
+            img.img-fluid#sah_logo(src="./img/sah_logo.png")
+          .col-sm-4.qr-code-block
+            img.img-fluid(src="./img/qrcode.jpg")
+            button.btn.btn-primary Register Now
+
+    -
+      var tracks1 = [
+        [
+          {
+            title: "Extented Reality",
+            desc: "A track Focusing on the latest advancements in the Immersive Technologies with speakers from Unity Technologies",
+            image: "icon_xr.png"
+          },
+          {
+            title: "Blockchain Track",
+            desc: "A Track focusing on the wave of disruptive innovations with Block- chain technology",
+            image: "icon_block.png"
+          },
+          {
+            title: "Community Meetups",
+            desc: "A Track to support and strengthen the various tech and non tech communities and for the development",
+            image: "icon_community.png"
+          },
+        ],
+        [
+          {
+            title: "Startup Expo",
+            desc: "StartUp Expo is the one stop destination for startups to showcase their innovative products",
+            image: "icon_expo.png"
+          },
+          {
+            title: "Innovation Hubs",
+            desc: "IEDC Summit brings together the nation’s eminent speakers on innovation and leading entrepreneurs",
+            image: "icon_hub.png"
+          },
+          {
+            title: "Panel Discussions",
+            desc: "Be the part of the most vibrant talks from the next generation entrepreneurs and leaders of tomorrow",
+            image: "icon_panel.png"
+          },
+        ],
+      ]
+
+    section#tracks.section-content
+      .container
+        h1.pb-3.text-center WHAT WE HAVE FOR YOU?
+        for tracks in tracks1
+          .card-deck.pt-5
+            for track in tracks
+              .card
+                .icon-holder
+                  .overlay
+                  .circle
+                    img(src="./img/"+track.image)
+                h3 #{track.title}
+                p #{track.desc}
+
+
+    -
+      var speakers = [
+        {
+          name: "Sherry Lassiter",
+          desi: "Fab Foundation President & CEO",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "S.B Sareen",
+          desi: "Sr. Faculty member, EDII, Ahmedabad",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "Jasmeet Singh",
+          desi: "Founder, Roborium/ JMOON Technologies",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "Dr. Suyogkumar Bhavare",
+          desi: "Jagriti Sewa Sansthan COO",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "Sherry Lassiter",
+          desi: "Fab Foundation President & CEO",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "S.B Sareen",
+          desi: "Sr. Faculty member, EDII, Ahmedabad",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "Jasmeet Singh",
+          desi: "Founder, Roborium/ JMOON Technologies",
+          image: "speaker-1.jpg"
+        },
+        {
+          name: "Dr. Suyogkumar Bhavare",
+          desi: "Jagriti Sewa Sansthan COO",
+          image: "speaker-1.jpg"
+        },
+      ]
+
+    section#speaker-section.section-content
+      .container
+        h1.pb-3.text-center Some of our Previous Speakers
+        .speaker-list
+          for speaker in speakers
+            .speaker
+              img(src="./img/"+speaker.image)
+              .descp
+                h4 #{speaker.name}
+                h5 #{speaker.desi}
+
+    script(src="./js/index.js")
