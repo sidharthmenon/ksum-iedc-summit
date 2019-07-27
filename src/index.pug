@@ -42,7 +42,7 @@ html(lang='en')
         .row
           .col.text-center
             .video-block
-              iframe(type='text/html' width='830' height='400' src='http://www.youtube.com/embed/iUsuwIyFzIk?autoplay=0&origin=http://example.com' frameborder='0')
+              iframe(type='text/html' width='830' height='400' src='//www.youtube.com/embed/iUsuwIyFzIk?autoplay=0&origin=http://example.com' frameborder='0')
 
     section#join-us.section-content
       .container
@@ -52,8 +52,9 @@ html(lang='en')
             h1 on 24th August 2019 at
             img.img-fluid#sah_logo(src="./img/sah_logo.png")
           .col-sm-4.qr-code-block
-            img.img-fluid(src="./img/qrcode.jpg")
-            button.btn.btn-primary Register Now
+            img.img-fluid(src="./img/qrcode.png")
+            a(href="#")
+              button.btn.btn-primary Register Now
 
     -
       var tracks1 = [
@@ -111,44 +112,68 @@ html(lang='en')
     -
       var speakers = [
         {
-          name: "Sherry Lassiter",
-          desi: "Fab Foundation President & CEO",
-          image: "speaker-1.jpg"
+          "id": 1,
+          "order": 1,
+          "image": "1564216485-21",
+          "name": "Sherry Lassiter",
+          "company": "Fab Foundation",
+          "position": "President & CEO"
         },
         {
-          name: "S.B Sareen",
-          desi: "Sr. Faculty member, EDII, Ahmedabad",
-          image: "speaker-1.jpg"
+          "id": 2,
+          "order": 2,
+          "image": "1564216485-50",
+          "name": "S.B Sareen",
+          "company": "",
+          "position": "Sr. Faculty member and Head-SMEs & Business Development Services"
         },
         {
-          name: "Jasmeet Singh",
-          desi: "Founder, Roborium/ JMOON Technologies",
-          image: "speaker-1.jpg"
+          "id": 3,
+          "order": 3,
+          "image": "1564216485-51",
+          "name": "Jasmeet Singh",
+          "company": "Roborium/JMOON Technologies",
+          "position": "Founder"
         },
         {
-          name: "Dr. Suyogkumar Bhavare",
-          desi: "Jagriti Sewa Sansthan COO",
-          image: "speaker-1.jpg"
+          "id": 4,
+          "order": 4,
+          "image": "1564216485-33",
+          "name": "Dr. Suyogkumar Bhavare",
+          "company": "Jagriti Sewa Sansthan",
+          "position": "COO"
         },
         {
-          name: "Sherry Lassiter",
-          desi: "Fab Foundation President & CEO",
-          image: "speaker-1.jpg"
+          "id": 5,
+          "order": 5,
+          "image": "1564216485-44",
+          "name": "Dr. Nirmala Padmanabhan",
+          "company": "St. Teresa's College, Ernakulam",
+          "position": ""
         },
         {
-          name: "S.B Sareen",
-          desi: "Sr. Faculty member, EDII, Ahmedabad",
-          image: "speaker-1.jpg"
+          "id": 6,
+          "order": 6,
+          "image": "1564216485-31",
+          "name": "Sharatchandra Aithal",
+          "company": "",
+          "position": "Field Engineer at Unity Technologies"
         },
         {
-          name: "Jasmeet Singh",
-          desi: "Founder, Roborium/ JMOON Technologies",
-          image: "speaker-1.jpg"
+          "id": 7,
+          "order": 7,
+          "image": "1564216485-47",
+          "name": "Pooja Rai",
+          "company": "Anthill Creations",
+          "position": "Co-founder & CEO"
         },
         {
-          name: "Dr. Suyogkumar Bhavare",
-          desi: "Jagriti Sewa Sansthan COO",
-          image: "speaker-1.jpg"
+          "id": 8,
+          "order": 8,
+          "image": "1564216485-54",
+          "name": "Viswesh Srinivasan",
+          "company": "SVP Laser Technologies",
+          "position": "Co-founder & MD"
         },
       ]
 
@@ -158,9 +183,38 @@ html(lang='en')
         .speaker-list
           for speaker in speakers
             .speaker
-              img(src="./img/"+speaker.image)
+              img(src="./img/speakers-18/"+speaker.image+"-image.jpg")
               .descp
                 h4 #{speaker.name}
-                h5 #{speaker.desi}
+                h5 #{speaker.company}
+                h5 #{speaker.position}
+
+    section#ksum-footer.section-content
+      .container
+        .row
+          .col-sm-4.left-col
+            img(src="./img/logo-white.svg")
+            .address
+              p G3B, Thejaswini, Technopark Campus, Kariyavattom, Trivandrum, Kerala 695581
+            .phone 
+              div 
+                i.fa.fa-phone
+                | 08033948999
+              p ( Timings: 08.00 am to 08.00 pm )
+            .social
+              a(href="https://www.facebook.com/keralastartupmission" target="_blank")
+                i.fa.fa-facebook
+              a(href="https://twitter.com/startup_mission" target="_blank")
+                i.fa.fa-twitter
+              a(href="https://in.linkedin.com/company/kerala-startup-mission" target="_blank")
+                i.fa.fa-linkedin
+              a(href="https://www.pinterest.com/pin/796996465276301175/" target="_blank")
+                i.fa.fa-pinterest
+              a(href="https://www.youtube.com/results?search_query=kerala+startup+mission" target="_blank")
+                i.fa.fa-youtube-play
+          .col-sm-4
+          .col-sm-4
+
+
 
     script(src="./js/index.js")
