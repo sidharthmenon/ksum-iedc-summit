@@ -8,9 +8,11 @@ before_script:
   - npm install
 
 pages:
-  stage: build
+  stage: deploy
   script:
     - npm run build
   artifacts:
     paths:
-      - dist/
+      - dist
+  only:
+    - master
