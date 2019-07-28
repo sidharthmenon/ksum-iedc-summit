@@ -46,6 +46,15 @@ var typewriter = new Typewriter('#type-area', {
   loop: false
 });
 
+let count = true;
+
+$(window).on('scroll', function () {
+  if ($(window).scrollTop() > 600 && count) {
+    counter();     
+    count = false; 
+  }
+});
+
 typewriter.typeString('The Speakers')
   .pauseFor(2500)
   .deleteChars(8)
@@ -59,7 +68,7 @@ typewriter.typeString('The Speakers')
   .pauseFor(2500)
   .start()
   .callFunction(function(){
-    counter();
+    // counter();
     $('body').css({'overflow':'visible'});
     $('html, body').animate({
       scrollTop: 667

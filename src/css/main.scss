@@ -15,7 +15,7 @@ p{
 }
 
 body{
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 #slider-section{
@@ -366,6 +366,27 @@ body{
 #ksum-footer{
   background: #0b031b;
 
+  .right-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p{
+      font-family: 'Blinker', sans-serif;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      padding-top: 10px;
+      font-weight: normal;
+    }
+
+    img{
+      max-width: 250px;
+    }
+
+  }
+
   .left-col{
     display: flex;
     flex-direction: column;
@@ -404,5 +425,17 @@ body{
         padding: 0 10px;
       }
     }
+  }
+}
+
+#ksum-copy{
+  background: #080113;
+  padding: 14px;
+
+  p{
+    margin: 0;
+    color: white;
+    font-family: 'Blinker', sans-serif;
+    text-align: center;
   }
 }
