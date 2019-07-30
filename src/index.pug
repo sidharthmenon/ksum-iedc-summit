@@ -1,19 +1,40 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title IEDC SUMMIT 2019
-    meta(name='description', content='IEDC Summit 2019')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel="stylesheet", href="./css/main.scss")
+  include parts/header.pug
   body
+
+    nav.site-navigation.fixed-top
+      .hamburger-menu.d-lg-none
+        span
+        span
+        span
+        span
+      ul
+        li
+          a(data-scroll, href='#slider-section') Home
+        li
+          a(data-scroll, href='#about-section') About
+        li
+          a(data-scroll, href='#speaker-section') Speakers
+        li
+          a(data-scroll, href='#tracks') Tracks
+
+
     section#slider-section
       .container#logo-container
         .row
           .col
             img#logo(src="./img/logo.png")
         div#type-area
+      .container#info-container
+        .row
+          .col-sm-8.venue
+            h3 Venue
+            h2 Sahrdaya College of Engineering and Technology
+          .col-sm-4.date
+            h3 Date
+            h2 24 August 2019
+        
       img.slide(src="./img/bg1.jpg")
       img.slide(src="./img/bg2.jpg")
       img.slide(src="./img/bg4.jpg")
@@ -59,43 +80,7 @@ html(lang='en')
             a(href="#")
               button.btn.btn-primary Register Now
 
-    -
-      var tracks1 = [
-        [
-          {
-            title: "Extented Reality",
-            desc: "A track Focusing on the latest advancements in the Immersive Technologies with speakers from Unity Technologies",
-            image: "icon_xr.png"
-          },
-          {
-            title: "Blockchain Track",
-            desc: "A Track focusing on the wave of disruptive innovations with Block- chain technology",
-            image: "icon_block.png"
-          },
-          {
-            title: "Community Meetups",
-            desc: "A Track to support and strengthen the various tech and non tech communities and for the development",
-            image: "icon_community.png"
-          },
-        ],
-        [
-          {
-            title: "Startup Expo",
-            desc: "StartUp Expo is the one stop destination for startups to showcase their innovative products",
-            image: "icon_expo.png"
-          },
-          {
-            title: "Innovation Hubs",
-            desc: "IEDC Summit brings together the nation’s eminent speakers on innovation and leading entrepreneurs",
-            image: "icon_hub.png"
-          },
-          {
-            title: "Panel Discussions",
-            desc: "Be the part of the most vibrant talks from the next generation entrepreneurs and leaders of tomorrow",
-            image: "icon_panel.png"
-          },
-        ],
-      ]
+    include variables/tracks.pug
 
     section#tracks.section-content
       .container
@@ -111,74 +96,7 @@ html(lang='en')
                 h3 #{track.title}
                 p #{track.desc}
 
-
-    -
-      var speakers = [
-        {
-          "id": 1,
-          "order": 1,
-          "image": "1564216485-21",
-          "name": "Sherry Lassiter",
-          "company": "Fab Foundation",
-          "position": "President & CEO"
-        },
-        {
-          "id": 2,
-          "order": 2,
-          "image": "1564216485-50",
-          "name": "S.B Sareen",
-          "company": "",
-          "position": "Sr. Faculty member and Head-SMEs & Business Development Services"
-        },
-        {
-          "id": 3,
-          "order": 3,
-          "image": "1564216485-51",
-          "name": "Jasmeet Singh",
-          "company": "Roborium/JMOON Technologies",
-          "position": "Founder"
-        },
-        {
-          "id": 4,
-          "order": 4,
-          "image": "1564216485-33",
-          "name": "Dr. Suyogkumar Bhavare",
-          "company": "Jagriti Sewa Sansthan",
-          "position": "COO"
-        },
-        {
-          "id": 5,
-          "order": 5,
-          "image": "1564216485-44",
-          "name": "Dr. Nirmala Padmanabhan",
-          "company": "St. Teresa's College, Ernakulam",
-          "position": ""
-        },
-        {
-          "id": 6,
-          "order": 6,
-          "image": "1564216485-31",
-          "name": "Sharatchandra Aithal",
-          "company": "",
-          "position": "Field Engineer at Unity Technologies"
-        },
-        {
-          "id": 7,
-          "order": 7,
-          "image": "1564216485-47",
-          "name": "Pooja Rai",
-          "company": "Anthill Creations",
-          "position": "Co-founder & CEO"
-        },
-        {
-          "id": 8,
-          "order": 8,
-          "image": "1564216485-54",
-          "name": "Viswesh Srinivasan",
-          "company": "SVP Laser Technologies",
-          "position": "Co-founder & MD"
-        },
-      ]
+    include variables/speakers.pug
 
     section#speaker-section.section-content
       .container
@@ -192,41 +110,10 @@ html(lang='en')
                 h5 #{speaker.company}
                 h5 #{speaker.position}
 
-    section#ksum-footer.section-content
-      .container
-        .row
-          .col-sm-4.left-col
-            img.img-fluid(src="./img/logo-white.svg")
-            .address
-              p G3B, Thejaswini, Technopark Campus, Kariyavattom, Trivandrum, Kerala 695581
-            .phone 
-              div 
-                i.fa.fa-phone
-                | 08033948999
-              p ( Timings: 08.00 am to 08.00 pm )
-            .social
-              a(href="https://www.facebook.com/keralastartupmission" target="_blank")
-                i.fa.fa-facebook
-              a(href="https://twitter.com/startup_mission" target="_blank")
-                i.fa.fa-twitter
-              a(href="https://in.linkedin.com/company/kerala-startup-mission" target="_blank")
-                i.fa.fa-linkedin
-              a(href="https://www.pinterest.com/pin/796996465276301175/" target="_blank")
-                i.fa.fa-pinterest
-              a(href="https://www.youtube.com/results?search_query=kerala+startup+mission" target="_blank")
-                i.fa.fa-youtube-play
-          .col-sm-4
-          .col-sm-4.right-col
-            p For More Details Contact: vishal@startupmission.in
-            p.mb-0 Hosted By
-            img.img-fluid(src="./img/sah_logo.png")
-            .address
-              p College Road, PB NO 17, Kodakara, Kerala PIN:680684
+    section#location
+      iframe(type='text/html' width='100%' height='400' frameborder="0" style="border:0" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15699.11827922123!2d76.2859136!3d10.3595024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x47836d6961e2b979!2sSahrdaya+College+of+Engineering+and+Technology!5e0!3m2!1sen!2sin!4v1564466814064!5m2!1sen!2sin")
 
-    section#ksum-copy
-      p Copyright © 2019 Kerala Startup Mission. All Rights Reserved.
-
-
-
+    include parts/footer.pug
 
     script(src="./js/index.js")
+    script(src="./js/home.js")
