@@ -18,16 +18,28 @@ body{
   // overflow: hidden;
 }
 
+nav.navbar{
+  z-index: 9999;
+}
+
 .site-navigation {
   position: absolute;
-  top: -22px;
+  top: 10px;
   right: 15px;
-  z-index: 9999;
+  z-index: 999;
   width: 100%;
   height: 22px;
   overflow: hidden;
   list-style: none;
   transition: all .35s;
+
+  @include my_bp(md){
+    position: fixed;
+    top: auto;
+    right: auto;
+    height: auto;
+    background: transparent;
+  }
 
   &.show{
     height: auto;
@@ -52,8 +64,24 @@ body{
     overflow-x: scroll;
     padding: 30px;
     margin: 0;
-    background: #9a28d7;
+    background: #2a0845;
     transition: all 0.35s;
+
+    @include my_bp(md){
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
+      height: auto;
+      padding: 0;
+      overflow: auto;
+      background: transparent;
+
+    }
 
     li{
       display: block;
@@ -82,38 +110,41 @@ body{
       }
     }
   }
-}
 
-@media screen and (min-width: 992px) {
-  .site-navigation {
-      position: fixed;
-      top: auto;
-      right: auto;
-      height: auto;
-      background: transparent;
+  .hamburger-menu {
+    position: relative;
+    width: 100%;
+    max-width: 24px;
+    height: 22px;
+    margin-left: auto;
+    transition: .5s ease-in-out;
+    cursor: pointer;
 
-      ul{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        align-items: center;
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        height: auto;
-        padding: 0;
-        overflow: auto;
-        background: transparent;
+    span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+      opacity: 1;
+      left: 0;
+      transition: .25s ease-in-out;
 
-        li a{
-          color: #fff;
-        }
+      &:nth-child(1){
+        top: 2px;
       }
+
+      &:nth-child(2), &:nth-child(3){
+        top: 10px;
+      }
+
+      &:nth-child(4) {
+        top: 18px;
+      }
+    }
   }
-
 }
-
 
 #slider-section{
   height: 100vh;
