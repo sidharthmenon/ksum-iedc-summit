@@ -1,6 +1,9 @@
 import $ from "jquery";
 import Typewriter from 'typewriter-effect/dist/core';
 
+import Vue from 'vue';
+import speaker_list from './speakers';
+
 function gradient_effect(elem){
   document.querySelector(elem).childNodes.forEach(function(e){
     e.style.pointerEvents = "none";
@@ -98,3 +101,23 @@ function carousal(){
   slides[carousal_index-1].style.display="block";
   setTimeout(carousal, 6000);
 }
+
+new Vue({ 
+  el: '#speaker-section',
+  data: {
+    speakers : speaker_list
+  },
+  computed: {
+    sorted: function(){
+      return this.sort(this.speakers)
+    }
+  },
+  methods: {
+    sort: function(arr) {
+      // Set slice() to avoid to generate an infinite loop!
+      return arr.slice().sort(function(a, b) {
+        return a.order - b.order;
+      });
+    }
+  },
+})

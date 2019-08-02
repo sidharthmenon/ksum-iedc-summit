@@ -1,23 +1,10 @@
 doctype html
 html(lang='en')
   include parts/header.pug
+  link(rel="stylesheet", href="./css/home.scss")
   body
 
-    nav.site-navigation
-      .hamburger-menu.d-lg-none
-        span
-        span
-        span
-        span
-      ul
-        li
-          a(data-scroll, href='#slider-section') Home
-        li
-          a(data-scroll, href='#about-section') About
-        li
-          a(data-scroll, href='#speaker-section') Speakers
-        li
-          a(data-scroll, href='#tracks') Tracks
+    include parts/menu.pug
 
     section#slider-section
       .container#logo-container
@@ -95,22 +82,20 @@ html(lang='en')
                 h3 #{track.title}
                 p #{track.desc}
 
-    include variables/speakers.pug
-
     section#speaker-section.section-content
       .container
         h1.pb-3.text-center Some of our Previous Speakers
         .speaker-list
-          for speaker in speakers
-            .speaker
-              img(src="./img/speakers-18/"+speaker.image+"-image.jpg")
-              .descp
-                h4 #{speaker.name}
-                h5 #{speaker.company}
-                h5 #{speaker.position}
+          .speaker(v-for="(item, index) in sorted" :key="index")
+            img(:src="'./'+item.image")
+            .descp
+              h4 {{item.name}}
+              h5 {{item.designation}}
+              h5 {{item.company}}
 
     section#location
       iframe(type='text/html' width='100%' height='400' frameborder="0" style="border:0" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15699.11827922123!2d76.2859136!3d10.3595024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x47836d6961e2b979!2sSahrdaya+College+of+Engineering+and+Technology!5e0!3m2!1sen!2sin!4v1564466814064!5m2!1sen!2sin")
+      .sah_img
 
     include parts/footer.pug
 
